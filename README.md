@@ -6,7 +6,6 @@ A template repository for Slim 4 PHP framework.
 
 To install and configure the application for local testing and development, use the following instructions.
 
-For instructions on deployment to a production environment please refer to the [official Slim Framework website's documentation](slimframework.com), the [official Composer documentation](https://getcomposer.org/) and the documentation of any third-party dependencies or frameworks included in your project.
 
 ### Pre-requisites
 #### PHP
@@ -59,8 +58,11 @@ $ git clone https://github.com/JoshuaFlood/slim-php-template.git
 $ cd slim-php-template
 $ composer install
 ```
+Once the application is published, visit the homepage to see the welcome message, or visit `example.domain.com/hello/[insert_your_name_here]` to see the application in action.
 
-End with an example of getting some data out of the system or using it for a little demo
+## Deployment
+
+For instructions on deployment to a production environment please refer to the [official Slim PHP Framework's documentation](http://www.slimframework.com/docs/v4/), the [official Composer documentation](https://getcomposer.org/doc/) and the documentation of any third-party dependencies or frameworks included in your project. Step-by-step instruction exceeds the scope of this documentation.
 
 ## Dependencies
 * [Slim PHP Framework 4](http://www.slimframework.com/) - Router framework
