@@ -50,7 +50,7 @@ To install Composer on windows, please follow the [documentation on the official
 ```
 # yum install composer
 ```
-### Installation
+## Installation
 
 To install the application, navigate to the folder within which you wish to clone the repository and execute the following shell commands:
 ```
