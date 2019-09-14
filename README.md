@@ -45,7 +45,9 @@ Download Git from the [official Git website](https://git-scm.com/downloads)
 ```
 ---
 ### Composer
+
 > Windows
+
 To install Composer on windows, please follow the [documentation on the official Composer website](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
 > Ubuntu
