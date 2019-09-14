@@ -9,7 +9,6 @@ To install and configure the application for local testing and development, use 
 For instructions on deployment to a production environment please refer to the [official Slim Framework website's documentation](slimframework.com), the [official Composer documentation](https://getcomposer.org/) and the documentation of any third-party dependencies or frameworks included in your project.
 
 ### Pre-requisites
-
 #### PHP
 ##### Windows
 Details on installing and configuring php for windows can be found on [the PHP website](https://windows.php.net).
@@ -24,6 +23,7 @@ If you have already installed XAMP, there is no need to install PHP manually. If
 ```
 # yum install php
 ```
+---
 #### Git
 ##### Windows
 Download Git from the [official Git website](https://git-scm.com/downloads)
@@ -37,7 +37,7 @@ Download Git from the [official Git website](https://git-scm.com/downloads)
 ```
 # yum install git
 ```
-
+---
 #### Composer
 ##### Windows
 To install Composer on windows, please follow the [documentation on the official Composer website](https://getcomposer.org/doc/00-intro.md#installation-windows)
@@ -51,7 +51,6 @@ To install Composer on windows, please follow the [documentation on the official
 ```
 # yum install composer
 ```
-
 ### Installation
 
 To install the application, navigate to the folder within which you wish to clone the repository and execute the following shell commands:
@@ -64,12 +63,12 @@ $ composer install
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Dependencies
-* (Slim PHP Framework 4)[http://www.slimframework.com/] - Router framework
-* (Slim PSR7)[https://github.com/slimphp/Slim-Psr7] - Implementation of PSR7 standard
-* (Slim PHP-View)[https://github.com/slimphp/PHP-View] - PHP view renderer
-* (PHP-DI)[http://php-di.org/] - Dependency injection
-* (Monolog)[https://github.com/Seldaek/monolog] - Log management
-* (PHPDotEnv)[https://github.com/vlucas/phpdotenv] - Environment variable management
+* [Slim PHP Framework 4](http://www.slimframework.com/) - Router framework
+* [Slim PSR7](https://github.com/slimphp/Slim-Psr7) - Implementation of PSR7 standard
+* [Slim PHP-View](https://github.com/slimphp/PHP-View) - PHP view renderer
+* [PHP-DI](http://php-di.org/) - Dependency injection
+* [Monolog](https://github.com/Seldaek/monolog) - Log management
+* [PHPDotEnv](https://github.com/vlucas/phpdotenv) - Environment variable management
 
 ## Authors
 
