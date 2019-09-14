@@ -7,46 +7,46 @@ A template repository for Slim 4 PHP framework.
 To install and configure the application for local testing and development, use the following instructions.
 
 
-### Pre-requisites
-#### PHP
-##### Windows
+## Pre-requisites
+### PHP
+#### Windows
 Details on installing and configuring php for windows can be found on [the PHP website](https://windows.php.net).
 If you have already installed XAMP, there is no need to install PHP manually. If you use another, similar service, please check their documentation to see whether or not PHP is included.
 
-##### Ubuntu
+#### Ubuntu
 ```
 # apt install php
 ```
 
-##### RHEL/CentOS
+#### RHEL/CentOS
 ```
 # yum install php
 ```
 ---
-#### Git
-##### Windows
+### Git
+#### Windows
 Download Git from the [official Git website](https://git-scm.com/downloads)
 
-##### Ubuntu
+#### Ubuntu
 ```
 # apt install git
 ```
 
-##### RHEL/CentOS
+#### RHEL/CentOS
 ```
 # yum install git
 ```
 ---
-#### Composer
-##### Windows
+### Composer
+#### Windows
 To install Composer on windows, please follow the [documentation on the official Composer website](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
-##### Ubuntu
+#### Ubuntu
 ```
 # apt install composer
 ```
 
-##### RHEL/CentOS
+#### RHEL/CentOS
 ```
 # yum install composer
 ```
