@@ -1,7 +1,5 @@
 <?php
 
-use PDO;
-
 $container = $app->getContainer();
 
 $container->set('logger', function ($c) {
