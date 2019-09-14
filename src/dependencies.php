@@ -16,4 +16,4 @@ $container->set('logger', function ($c) {
         $logger->pushHandler(new Monolog\Handler\ErrorLogHandler(0, Monolog\Logger::DEBUG, true, true));
     }
     return $logger;
-};
+});
