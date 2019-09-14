@@ -1,116 +1,82 @@
 # slim-php-template
 
-A template repository for composer projects utilising Slim PHP Framework version 4.
+A template repository for Slim 4 PHP framework.
 
 ## Getting Started
 
-These instructions will help you to install and configure the template in a development environment. The application is not suitable for deployment in a production environment and should be used for educational, development and testing purposes only.
+To install and configure the application for local testing and development, use the following instructions.
 
-#### Pre-requisites
+For instructions on deployment to a production environment please refer to the [official Slim Framework website's documentation](slimframework.com), the [official Composer documentation](https://getcomposer.org/) and the documentation of any third-party dependencies or frameworks included in your project.
 
-Nginx and the most recent version of PHP should be installed on the host system. In Ubuntu this can be achieved using the following code:
+### Pre-requisites
 
+#### PHP
+##### Windows
+Details on installing and configuring php for windows can be found on [the PHP website](https://windows.php.net).
+If you have already installed XAMP, there is no need to install PHP manually. If you use another, similar service, please check their documentation to see whether or not PHP is included.
+
+##### Ubuntu
 ```
-# apt install nginx php php-common php-fpm
-```
-
-An nginx vhost file should be created for the application. In ubuntu the path for the default vhost configuration is `etc/nginx/sites-available/default`. This file can be duplicated, allowing you to create your own vhost configuration. Alternatively, you can copy the following configuration and place it in the file `/etc/nginx/sites-available/example.domain.com`:
-
-```
-server {
-    listen 80;
-    server_name example.domain.com;
-    root /var/www/example.domain.com/public_html/;
-
-    index index.php index.html index.htm;
-
-    charset utf-8;
-
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
-
-    location = /favicon.ico { access_log off; log_not_found off; }
-    location = /robots.txt  { access_log off; log_not_found off; }
-
-    access_log off;
-    error_log  /var/log/nginx/example.domain.com-error.log error;
-
-    sendfile off;
-
-    client_max_body_size 100m;
-
-    location ~ \.php$ {
-      root /var/www/example.domain.com/public_html/;
-      fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-      fastcgi_index index.php;
-      include fastcgi_params;
-      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
-}
+# apt install php
 ```
 
-The `server_name` parameter should be set to the desired domain name. The `root` parameters should both be set to the public root of the application - be sure to retain the trailing slashes. The `error_log` parameter should be altered to ensure that the error file's name contains the application's real domain name.
-If you receive errors detailing that php-fpm is not installed or cannot be located, but you have ensured that it is properly installed and working, then run the command `$ locate php7.2-fpm.sock` in your server's console and ensure that the `fastcgi_pass` parameter's value is equal to the response.
+##### RHEL/CentOS
+```
+# yum install php
+```
+#### Git
+##### Windows
+Download Git from the [official Git website](https://git-scm.com/downloads)
+
+##### Ubuntu
+```
+# apt install git
+```
+
+##### RHEL/CentOS
+```
+# yum install git
+```
+
+#### Composer
+##### Windows
+To install Composer on windows, please follow the [documentation on the official Composer website](https://getcomposer.org/doc/00-intro.md#installation-windows)
+
+##### Ubuntu
+```
+# apt install composer
+```
+
+##### RHEL/CentOS
+```
+# yum install composer
+```
 
 ### Installation
 
-When you are ready to test out the application then the following commands can be issued. The first command disables the default virtual host, the second command enables the newly-created virtual host configuration and the third/fourth commands restart the nginx and php-fpm services to ensure that the new configuration is loaded.
+To install the application, navigate to the folder within which you wish to clone the repository and execute the following shell commands:
+```
+$ git clone https://github.com/JoshuaFlood/slim-php-template.git
+$ cd slim-php-template
+$ composer install
+```
 
-```
-# rm /etc/nginx/sites-enabled/default
-# ln -sf /etc/nginx/sites-available/example.domain.com /etc/nginx/sites-enabled/
-# systemctl restart nginx
-# systemctl restart php-fpm
-```
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* Lots
-* of
-* things
+## Dependencies
+* (Slim PHP Framework 4)[http://www.slimframework.com/] - Router framework
+* (Slim PSR7)[https://github.com/slimphp/Slim-Psr7] - Implementation of PSR7 standard
+* (Slim PHP-View)[https://github.com/slimphp/PHP-View] - PHP view renderer
+* (PHP-DI)[http://php-di.org/] - Dependency injection
+* (Monolog)[https://github.com/Seldaek/monolog] - Log management
+* (PHPDotEnv)[https://github.com/vlucas/phpdotenv] - Environment variable management
 
 ## Authors
 
 * **Joshua Flood** - *Initial work* - [Joshua Flood](http://joshuaflood.co.uk)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/JoshuaFlood/slim-php-template/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
