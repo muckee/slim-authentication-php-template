@@ -10,29 +10,36 @@ To install and configure the application for local testing and development, use 
 ## Pre-requisites
 ### PHP
 > Windows
+
 Details on installing and configuring php for windows can be found on [the PHP website](https://windows.php.net).
 If you have already installed XAMP, there is no need to install PHP manually. If you use another, similar service, please check their documentation to see whether or not PHP is included.
 
 > Ubuntu
+
 ```
 # apt install php
 ```
 
 > RHEL/CentOS
+
 ```
 # yum install php
 ```
 ---
 ### Git
+
 > Windows
+
 Download Git from the [official Git website](https://git-scm.com/downloads)
 
 > Ubuntu
+
 ```
 # apt install git
 ```
 
 > RHEL/CentOS
+
 ```
 # yum install git
 ```
@@ -42,22 +49,27 @@ Download Git from the [official Git website](https://git-scm.com/downloads)
 To install Composer on windows, please follow the [documentation on the official Composer website](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
 > Ubuntu
+
 ```
 # apt install composer
 ```
 
 > RHEL/CentOS
+
 ```
 # yum install composer
 ```
+
 ## Installation
 
 To install the application, navigate to the folder within which you wish to clone the repository and execute the following shell commands:
+
 ```
 $ git clone https://github.com/JoshuaFlood/slim-php-template.git
 $ cd slim-php-template
 $ composer install
 ```
+
 Once the application is published, visit the homepage to see the welcome message, or visit `example.domain.com/hello/[insert_your_name_here]` to see the application in action.
 
 ## Deployment
