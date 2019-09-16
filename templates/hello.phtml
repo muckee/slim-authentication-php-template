@@ -1,0 +1,16 @@
+<?php
+  $name = "world";
+  if(isset($_GET['name'])) {
+    $name = $_GET['name'];
+  }
+?>
+require_once(__DIR__ . '/header.phtml');
+
+  <div style="width: 360px; margin: 30px; padding: 8px; border: 3px solid #000; border-radius: 5px; background-color: #0066cc;">
+    <h3>
+      Hello, <?php echo $name; ?>!
+    </h3>
+    <p>Welcome to the thunderdome...</p>
+  </div>
+
+require_once(__DIR__ . '/footer.phtml');
