@@ -1,8 +1,48 @@
+<?php
+  $errMessage = "";
+  if($_GET['error']) {
+    $errMessage = $_GET['error'];
+  }
+
+  include __DIR__ . '/header.phtml';
+?>
+
 <div>
 
   <div>
     <h2>Welcome to the thunderdome!</h2>
 
     <p>You'll never leave...</p>
+  </div>
+
+
+  <div>
+
+    <div>
+      <span>
+        <?php
+          if ($errMessage) {
+            echo $errMessage;
+          }
+        ?>
+      </span>
+    </div>
+    <form action="/authenticate">
+      <div>
+        <label for="user"><b>Username</b></label>
+        <input type="text" placeholder="Enter username" name="user" required>
+
+        <label for="pass"><b>Password</b></label>
+        <input type="password" placeholder="Enter password" name="pass" required>
+
+        <button type="submit">Login</button>
+      </div>
+
+      <div>
+        <span>Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
 
 </div>
+<?php include __DIR__ . '/footer.phtml'; ?>

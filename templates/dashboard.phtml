@@ -1,0 +1,16 @@
+<?php
+  $username = "user unknown";
+
+  if(isset($_GET['uname'])) {
+    $username = $_GET['uname'];
+  }
+
+  include __DIR__ . '/header.phtml';
+?>
+<div>
+  <div>
+    <h2>Welcome to the dashboard, <?php echo $username; ?>!</h2>
+  </div>
+</div>
+
+<?php include __DIR__ . '/footer.phtml'; ?>
