@@ -1,0 +1,54 @@
+html,
+body,
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 23px;
+}
+
+.title-container {
+  width: 356px;
+  margin: auto;
+  text-align: center;
+}
+
+.login-container {
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.registration-form-container {
+  width: 420px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.registration-form-container .container > *{
+  display: block;
+  margin-bottom: 6px;
+}
+
+.registration-form-container .container button {
+  margin-left: 280px;
+}
+
+.error-message {
+  color: #CC0000;
+  font-weight: bold;
+}
+
+.dashboard-controls ul {
+  list-style: none;
+}
+
+.dashboard-controls ul li {
+  display: inline-block;
+}

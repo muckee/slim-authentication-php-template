@@ -1,7 +1,5 @@
 <?php
 
-use App\Controller\AuthenticationController;
-
 // Initialise container
 ///////////////////////
 $container = $app->getContainer();
@@ -49,31 +47,37 @@ $container->set('mysql', function ($c) {
                     $user,
                     $pass,
                     $options );
+    return $dbh;
   }
-  catch(PDOException $ex){
+  catch(PDOException $e){
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
   }
 });
 
+// Controller containers
+////////////////////////
 
-// Class constructor parameters
-///////////////////////////////
+$container->set('HomeController', function ($c) {
+  $renderer = $c->get('renderer');
+  return new App\Controller\HomeController($renderer);
+});
 
-//  \App\AuthenticationController
-$container->set(AuthenticationController::class, function ($c) {
+$container->set('AuthenticationController', function ($c) {
   $pdo = $c->get('mysql');
-  return new AuthenticationController($pdo);
+  return new App\Controller\AuthenticationController($pdo);
 });
 
-//  \App\DashboardController
-$container->set(DashboardController::class, function ($c) {
+$container->set('RegistrationController', function ($c) {
+  $pdo = $c->get('mysql');
   $renderer = $c->get('renderer');
-  return new DashboardController($renderer);
+  return new App\Controller\RegistrationController($pdo, $renderer);
 });
 
-//  \App\DashboardController
-$container->set(UserAccountController::class, function ($c) {
-  $pdo = $c->get('renderer');
+$container->set('DashboardController', function ($c) {
   $renderer = $c->get('renderer');
-  return new UserAccountController($pdo, $renderer);
+  return new App\Controller\DashboardController($renderer);
+});
+
+$container->set('UserAccountController', function ($c) {
+  return new App\Controller\UserAccountController();
 });

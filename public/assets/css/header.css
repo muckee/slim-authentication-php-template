@@ -1,0 +1,52 @@
+// CSS Stylesheet
+
+header {
+  min-height: 80px;
+}
+
+header > * {
+  height: 74px;
+}
+
+.page-title {
+  width: 20%;
+  float: left;
+}
+
+.page-navigation {
+  width: 50%;
+  float: left;
+}
+
+.header-addition {
+  width: 30%;
+  float: left;
+}
+
+.social-links {
+  width: 100%;
+  float: left;
+}
+
+.date-time {
+  width: 100%;
+  float: left;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header ul li {
+  display: inline-block;
+}
+
+.header-addition {
+  text-align: right;
+}
+
+.header-addition > * {
+  padding-right: 12px;
+}

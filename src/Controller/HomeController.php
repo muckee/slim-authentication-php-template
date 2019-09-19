@@ -16,6 +16,7 @@ class HomeController
 
   public function view (Request $request, Response $response, array $args)
   {
+    $args['pageTitle'] = "index";
     if(!isset($_SESSION['loggedin'])) {
       $reqBody = $request->getParsedBody();
       if(isset($reqBody['error'])) {

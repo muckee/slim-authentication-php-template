@@ -5,4 +5,4 @@ use Slim\Response;
 
 $app->addRoutingMiddleware();
 
-$app->addErrorMiddleware(true, false, false);
+$app->addErrorMiddleware(true, true, true);

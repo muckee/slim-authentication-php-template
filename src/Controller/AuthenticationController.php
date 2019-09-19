@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controller;
 
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
+use Slim\Psr7\Stream;
 
 /**
  * Authentication controller
@@ -36,54 +37,47 @@ class AuthenticationController
    */
   public function authenticate(Request $request, Response $response, array $args)
   {
-    $resBody = array();
+    $errors = array(
+      'error' => ""
+    );
 
-    if(!isset($args['user'], $args['pass']) {
-      $resBody['error'] = "Please provide your username and password!";
-      $response = $response->getBody()
-                           ->write(json_encode($resBody)));
+    $reqBody = $request->getParsedBody();
 
+    $username = $reqBody['user'];
+    $pass = $reqBody['pass'];
+
+    if(!strlen($username) || !strlen($pass)) {
+      $errors['error'] = "Please provide your username and password!";
+      $payload = json_encode($errors);
+      $body = $response->getBody();
+      $body->write($payload);
+      $response->withBody($body);
       return $response->withHeader('Location', '/');
     }
-
-    $username = $request->get('user');
-    $pass = $request->get('pass');
-
     $stmt = $this->pdo
-                 ->query("SELECT id, password FROM users WHERE username = :username");
-    $stmt->(['username' => $username]);
-
-    $usr = $stmt->fetchAll();
-
-    $stmt->close();
-
-    if(COUNT($username) > 1) {
-      $resBody['error'] = "More than one user exists with this username. Please contact the site administrator!";
-      $response = $response->getBody()
-                           ->write(json_encode($resBody['error']));
-    } else if (COUNT($usr)) {
-
-      if(password_verify($pass, $usr[0]['password'])) {
-
+                 ->prepare("SELECT id,password FROM oauth_users WHERE username=:username");
+    $params = array(
+      'username' => $username
+    );
+    $stmt->execute($params);
+    if($usr = $stmt->fetch()) {
+      if(password_verify($pass, $usr['password'])) {
         session_regenerate_id();
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['uname'] = $username;
-        $_SESSION['uid'] = $usr[0]['uid'];
-
+        $_SESSION['uid'] = $usr['id'];
         return $response->withHeader('Location', '/dashboard');
       } else {
-        $resBody['error'] = "The username or password entered was invalid.";
-
+        $error['error'] = "The username or password entered was invalid.";
         return $response->getBody()
-                        ->write(json_encode($resBody))
+                        ->write(json_encode($error))
                         ->withHeader('Location', '/');
       }
-    } else {
-      $resBody['error'] = "The username or password entered was invalid.";
-
-      return $response->getBody()
-                      ->write(json_encode($resBody))
-                      ->withHeader('Location', '/');
     }
+    $error['error'] = "The username or password entered was invalid.";
+
+    return $response->getBody()
+                    ->write(json_encode($error))
+                    ->withHeader('Location', '/');
   }
 }

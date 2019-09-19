@@ -1,4 +1,3 @@
-
 <?php
 
 use Slim\Psr7\Request;
@@ -9,19 +8,47 @@ use App\Controller\Authenticate;
 //   return $this->get('renderer')->render($response, "index.phtml", $args);
 // });
 
-$app->get('/', HomeController::class . ':view');
+// Home route
+$app->get('/', 'HomeController:view');
+$app->post('/', 'AuthenticationController:authenticate');
 
+// 'Hello, world!' test route
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
   return $this->get('renderer')->render($response, "hello.phtml", $args);
 });
 
-$app->get('/timestamp', function (Request $request, Response $response) {
-  $timestamp = date('H:i:s');
-  return $request-getBody()->write($timestamp);
+// Route for updating current time
+$app->get('/time', function (Request $request, Response $response) {
+  // TODO:
+  // Add functionality for returning the current date,
+  // in addition to the current time.
+  $payload = json_encode(array(
+    'time' => date('H:i:s')
+  ));
+  $response->getBody()
+           ->write($payload);
+  return $response->withHeader('Content-Type', 'application/json');
 });
 
-$app->post('/authenticate', AuthenticationController::class . ':authenticate');
+// Route for updating current time
+$app->get('/date', function (Request $request, Response $response) {
+  // TODO:
+  // Add functionality for returning the current date,
+  // in addition to the current time.
+  $payload = json_encode(array(
+    'date' => date('d/m/Y')
+  ));
+  $response->getBody()
+           ->write($payload);
+  return $response->withHeader('Content-Type', 'application/json');
+});
 
-$app->get('/dashboard', DashboardController::class . ':view')->add($authenticationMiddleware);
+// Registration route
+$app->get('/register', 'RegistrationController:view');
+$app->post('/register', 'RegistrationController:register');
 
-$app->get('/account', UserAccountController::class . ':view')->add($authenticationMiddleware);
+// Dashboard route
+$app->get('/dashboard', 'DashboardController:view');
+
+// Account management route
+$app->get('/account', 'UserAccountController:view');

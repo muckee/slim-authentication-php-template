@@ -35,12 +35,10 @@ class DashboardController
    */
   public function view(Request $request, Response $response, array $args)
   {
-    session_start();
-
+    $args['pageTitle'] = "dashboard";
     if(!isset($_SESSION['loggedin'])) {
       return $response->withHeader('Location', '/');
     }
-
     return $this->renderer->render($response, "dashboard.phtml", $args);
   }
 }

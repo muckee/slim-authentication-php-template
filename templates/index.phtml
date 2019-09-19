@@ -1,33 +1,30 @@
 <?php
   $errMessage = "";
-  if($_GET['error']) {
+  if(isset($_GET['error'])) {
     $errMessage = $_GET['error'];
   }
 
   include __DIR__ . '/header.phtml';
 ?>
 
+<head>
+  <link rel="stylesheet" type="text/css" src="assets/css/index.css">
+</head>
+
 <div>
 
-  <div>
+  <div class="title-container">
     <h2>Welcome to the thunderdome!</h2>
 
     <p>You'll never leave...</p>
   </div>
 
 
-  <div>
-
+  <div class="login-container">
     <div>
-      <span>
-        <?php
-          if ($errMessage) {
-            echo $errMessage;
-          }
-        ?>
-      </span>
+      <span><?php if ($errMessage) {echo $errMessage;} ?></span>
     </div>
-    <form action="/authenticate">
+    <form method="POST" action="/">
       <div>
         <label for="user"><b>Username</b></label>
         <input type="text" placeholder="Enter username" name="user" required>
@@ -40,6 +37,9 @@
 
       <div>
         <span>Forgot <a href="#">password?</a></span>
+      </div>
+      <div>
+        <span>Need to <a href="/register">register an account</a>?</span>
       </div>
     </form>
   </div>

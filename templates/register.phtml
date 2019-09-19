@@ -1,0 +1,52 @@
+<?php
+
+include __DIR__ . '/header.phtml';
+?>
+<div class="registration-form-container">
+    <form action="/register" method="POST">
+      <div class="container">
+        <h1>Registration form</h1>
+
+        <hr>
+
+        <div>
+          <span class="error-message">
+            <?php
+              if(isset($error)) {
+                echo $error;
+              }
+            ?>
+          </span>
+        </div>
+
+        <label for="uname"><b>Username:</b></label>
+        <input type="text" placeholder="Your username goes here" name="uname" required>
+
+        <label for="fname"><b>First name:</b></label>
+        <input type="text" placeholder="Your first name goes here" name="fname" required>
+
+        <label for="lname"><b>Last name:</b></label>
+        <input type="text" placeholder="Your last name goes here" name="lname" required>
+
+        <label for="email"><b>E-mail:</b></label>
+        <input type="text" placeholder="Your e-mail goes here" name="email" required>
+
+        <label for="pass"><b>Password:</b></label>
+        <input type="password" placeholder="Your password goes here" name="pass" required>
+
+        <label for="pass-repeat"><b>Repeat Password:</b></label>
+        <input type="password" placeholder="Repeat your password here" name="pass-repeat" required>
+
+        <hr>
+
+        <p>By creating an account you agree to our <a href="/terms">Terms & Conditions</a> and our <a href="/privacy">privacy statement</a>.</p>
+        <button type="submit">Register</button>
+      </div>
+
+      <div class="container signin">
+        <p>Already have an account?</p>
+        <p><a href="/">Sign in</a></p>
+      </div>
+    </form>
+</div>
+<?php include __DIR__ . '/footer.phtml'; ?>
