@@ -1,6 +1,6 @@
 # slim-php-template
 
-A template repository for Slim 4 PHP framework.
+A template repository for Slim PHP Framework 4 with user authentication.
 
 ## Getting Started
 
